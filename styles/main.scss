@@ -1,0 +1,22 @@
+// Import abstracts (variables, mixins, animations)
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/animations';
+
+// Import base styles
+@import 'base/reset';
+
+// Import component styles
+@import 'components/navigation';
+// @import 'components/footer'; // Commented out - not used
+
+// Import section styles
+@import 'sections/hero';
+@import 'sections/about';
+@import 'sections/skills';
+@import 'sections/experience';
+@import 'sections/projects';
+// @import 'sections/contact'; // Commented out - not used
+
+// Import animation styles
+@import 'animations/animated-background';

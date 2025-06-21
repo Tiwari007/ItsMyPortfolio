@@ -1,0 +1,186 @@
+// Base reset and typography
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background: var(--background-color);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  
+  @include sm-up {
+    font-size: var(--font-size-6xl);
+  }
+  
+  @include lg-up {
+    font-size: var(--font-size-7xl);
+  }
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  
+  @include sm-up {
+    font-size: var(--font-size-4xl);
+  }
+  
+  @include lg-up {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  
+  @include sm-up {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  
+  @include sm-up {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  
+  @include sm-up {
+    font-size: var(--font-size-xl);
+  }
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  
+  @include sm-up {
+    font-size: var(--font-size-lg);
+  }
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-relaxed);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--secondary-color);
+  }
+
+  &:focus {
+    @include focus-ring;
+  }
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+
+  &:focus {
+    @include focus-ring;
+  }
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Lists
+ul, ol {
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+// Selection
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: var(--text-primary);
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--purple-700), var(--pink-600));
+}
+
+// Utility classes
+.container {
+  @include container;
+}
+
+.text-gradient {
+  @include text-gradient;
+}
+
+.glass-effect {
+  @include glass-effect;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}

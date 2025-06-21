@@ -1,0 +1,204 @@
+.about {
+  position: relative;
+  @include section-padding;
+
+  &__container {
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+
+    h2 {
+      font-size: var(--font-size-4xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-md);
+
+      @include sm-up {
+        font-size: var(--font-size-5xl);
+      }
+
+      .highlight {
+        @include text-gradient;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 96px;
+      height: 4px;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      margin: 0 auto;
+      border-radius: var(--border-radius-full);
+    }
+  }
+
+  &__content {
+    @include grid-responsive(1, 1, 2);
+    align-items: center;
+    gap: var(--spacing-3xl);
+
+    @include lg-up {
+      gap: var(--spacing-4xl);
+    }
+  }
+
+  &__image {
+    position: relative;
+    @include flex-center;
+
+    .profile-container {
+      position: relative;
+      width: 320px;
+      height: 320px;
+
+      @include mobile {
+        width: 250px;
+        height: 250px;
+      }
+
+      .gradient-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        border-radius: 50%;
+        filter: blur(2px);
+        opacity: 0.75;
+        @include animate(pulse, 3s, ease-in-out, infinite);
+      }
+
+      .profile-image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: var(--gray-200);
+        border-radius: 50%;
+        @include flex-center;
+        font-size: 4rem;
+        z-index: 2;
+
+        @include mobile {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+
+  &__text {
+    .intro {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-md);
+
+      @include mobile {
+        font-size: var(--font-size-xl);
+      }
+    }
+
+    .description {
+      font-size: var(--font-size-base);
+      color: var(--text-secondary);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--spacing-lg);
+
+      @include sm-up {
+        font-size: var(--font-size-lg);
+      }
+    }
+  }
+
+  &__details {
+    @include grid-responsive(1, 2, 2);
+    margin-bottom: var(--spacing-xl);
+    gap: var(--spacing-lg);
+
+    .detail-section {
+      h4 {
+        font-weight: var(--font-weight-semibold);
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-sm);
+        font-size: var(--font-size-base);
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          color: var(--text-secondary);
+          font-size: var(--font-size-sm);
+          margin-bottom: var(--spacing-xs);
+          line-height: var(--line-height-normal);
+
+          &::before {
+            content: '• ';
+            color: var(--primary-color);
+            margin-right: var(--spacing-xs);
+          }
+        }
+      }
+    }
+  }
+
+  &__traits {
+    @include flex-center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+
+    .trait {
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: var(--border-radius-full);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      transition: all var(--transition-normal);
+
+      &--purple {
+        background: var(--purple-100);
+        color: var(--purple-800);
+      }
+
+      &--pink {
+        background: var(--pink-100);
+        color: var(--pink-600);
+      }
+
+      &--blue {
+        background: var(--blue-50);
+        color: var(--blue-600);
+      }
+
+      &--green {
+        background: var(--green-50);
+        color: var(--green-700);
+      }
+
+      &:hover {
+        @include hover-scale(1.05);
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @include mobile {
+    &__content {
+      @include flex-column;
+      text-align: center;
+    }
+
+    &__details {
+      @include grid-responsive(1, 1, 1);
+    }
+
+    &__traits {
+      justify-content: center;
+    }
+  }
+}

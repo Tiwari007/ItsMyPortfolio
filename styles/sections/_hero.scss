@@ -1,0 +1,151 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  @include flex-center;
+  @include section-padding;
+  text-align: center;
+  z-index: 10;
+
+  &__content {
+    @include container;
+    max-width: 1000px;
+  }
+
+  &__title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+
+    @include sm-up {
+      font-size: var(--font-size-6xl);
+    }
+
+    @include lg-up {
+      font-size: var(--font-size-7xl);
+    }
+
+    .highlight {
+      @include text-gradient;
+    }
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    height: 48px;
+    @include flex-center;
+
+    @include sm-up {
+      font-size: var(--font-size-2xl);
+    }
+
+    @include lg-up {
+      font-size: var(--font-size-3xl);
+    }
+
+    .typing-text {
+      overflow: hidden;
+      white-space: nowrap;
+    //   border-right: 2px solid var(--primary-color);
+      @include animate(type, 3s, steps(40, end));
+      animation-fill-mode: forwards;
+
+      &::after {
+        @include animate(blink, 2s, step-end, infinite);
+      }
+    }
+  }
+
+  &__description {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-3xl);
+    line-height: var(--line-height-relaxed);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include sm-up {
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  &__actions {
+    @include flex-column;
+    gap: var(--spacing-md);
+    align-items: center;
+
+    @include sm-up {
+      @include flex-center;
+      flex-direction: row;
+      gap: var(--spacing-lg);
+    }
+  }
+
+  &__button {
+    &--primary {
+      @include button-primary;
+    }
+
+    &--secondary {
+      @include button-secondary;
+    }
+  }
+
+  &__scroll-indicator {
+    position: absolute;
+    bottom: var(--spacing-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    @include animate(bounce-slow, 2s, ease-in-out, infinite);
+
+    .scroll-mouse {
+      width: 24px;
+      height: 40px;
+      border: 2px solid var(--gray-400);
+      border-radius: var(--border-radius-full);
+      @include flex-center;
+
+      .scroll-dot {
+        width: 4px;
+        height: 12px;
+        background: var(--gray-400);
+        border-radius: var(--border-radius-full);
+        margin-top: var(--spacing-sm);
+        @include animate(pulse, 2s, ease-in-out, infinite);
+      }
+    }
+  }
+
+  // Animation for content
+  &__content {
+    @include animate(fade-in, 1s, ease-out);
+  }
+
+  // Responsive adjustments
+  @include mobile {
+    min-height: 100vh;
+    padding: var(--spacing-xl) 0;
+
+    &__title {
+      font-size: var(--font-size-3xl);
+    }
+
+    &__subtitle {
+      font-size: var(--font-size-lg);
+      height: 32px;
+    }
+
+    &__description {
+      font-size: var(--font-size-base);
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    &__button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}

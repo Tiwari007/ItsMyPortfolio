@@ -1,0 +1,190 @@
+// Keyframe animation for skill progress bars
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--skill-width, 85%);
+  }
+}
+
+.skills {
+//   @include section-padding;
+//   background: var(--gray-50);
+  position: relative;
+
+  &__container {
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+
+    h2 {
+      font-size: var(--font-size-4xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-md);
+
+      @include sm-up {
+        font-size: var(--font-size-5xl);
+      }
+
+      .highlight {
+        @include text-gradient;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 96px;
+      height: 4px;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      margin: 0 auto;
+      border-radius: var(--border-radius-full);
+    }
+
+    .description {
+      color: var(--text-secondary);
+      margin-top: var(--spacing-lg);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__categories {
+    @include grid-responsive(1, 1, 3);
+    margin-bottom: var(--spacing-4xl);
+  }
+
+  &__category {
+    @include card-base;
+    padding: var(--spacing-xl);
+    text-align: center;
+    @include card-hover;
+
+    &:hover {
+      box-shadow: 0 20px 40px var(--shadow-medium);
+    }
+
+    .category-icon {
+      font-size: 4rem;
+      margin-bottom: var(--spacing-md);
+      @include animate(float, 6s, ease-in-out, infinite);
+    }
+
+    .category-title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .skills-list {
+      @include flex-column;
+      gap: var(--spacing-lg);
+    }
+  }
+
+  &__skill {
+    .skill-header {
+      @include flex-between;
+      margin-bottom: var(--spacing-sm);
+
+      .skill-name {
+        color: var(--text-secondary);
+        font-weight: var(--font-weight-medium);
+        font-size: var(--font-size-base);
+      }
+
+      .skill-level {
+        color: var(--text-light);
+        font-size: var(--font-size-sm);
+      }
+    }    .skill-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--gray-200);
+      border-radius: var(--border-radius-full);
+      overflow: hidden;      .skill-progress {
+        height: 100%;
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        border-radius: var(--border-radius-full);
+        transition: width 1.5s ease-out;
+        width: 0%;
+        transform-origin: left;
+      }
+    }
+  }
+
+  &__additional {
+    text-align: center;
+
+    h3 {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .tech-list {
+      @include flex-center;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+
+      .tech-item {
+        background: white;
+        padding: var(--spacing-md) var(--spacing-lg);
+        border-radius: var(--border-radius-full);
+        color: var(--text-secondary);
+        font-weight: var(--font-weight-medium);
+        box-shadow: 0 4px 6px var(--shadow-light);
+        border: 1px solid var(--border-color);
+        transition: all var(--transition-normal);
+
+        &:hover {
+          @include hover-scale(1.05);
+          box-shadow: 0 8px 15px var(--shadow-medium);
+        }
+      }
+    }
+  }
+
+  &__loading {
+    text-align: center;
+    padding: var(--spacing-4xl) 0;
+    
+    p {
+      color: var(--text-secondary);
+      font-size: var(--font-size-lg);
+    }
+  }
+
+  // Responsive adjustments
+  @include mobile {
+    &__categories {
+      @include grid-responsive(1, 1, 1);
+    }
+
+    &__category {
+      padding: var(--spacing-lg);
+
+      .category-icon {
+        font-size: 3rem;
+      }
+
+      .category-title {
+        font-size: var(--font-size-lg);
+      }
+    }
+
+    &__additional {
+      .tech-list {
+        justify-content: center;
+      }
+    }
+  }
+}
