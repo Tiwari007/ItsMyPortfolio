@@ -26,7 +26,7 @@ export default function HeroSection() {
       <div className="hero__content">
         <div className="animate-fade-in">
           <h1 className="hero__title">
-            Hi, I'm{' '}
+            Hi, I&apos;m{' '}
             <span className="highlight">
               Vivek Tiwari
             </span>

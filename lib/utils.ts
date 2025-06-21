@@ -18,36 +18,6 @@ export function formatDate(date: Date | string): string {
 }
 
 /**
- * Debounce function to limit how often a function can be called
- */
-export function debounce<T extends (...args: any[]) => any>(
-  func: T,
-  wait: number
-): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout;
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
-}
-
-/**
- * Scroll to a specific element with smooth behavior
- */
-export function scrollToElement(elementId: string, offset: number = 80): void {
-  const element = document.querySelector(elementId);
-  if (element) {
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  }
-}
-
-/**
  * Check if element is in viewport
  */
 export function isInViewport(element: Element): boolean {

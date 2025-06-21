@@ -14,11 +14,11 @@ function ProjectsSection() {
           </h2>
           <div className="projects__title-underline"></div>
           <p className="projects__description">
-            Here are some of the projects I've worked on. Each one represents a unique challenge and learning experience.
+            Here are some of the projects I&apos;ve worked on. Each one represents a unique challenge and learning experience.
           </p>
-        </div>
+        </div>        
         <div className="projects__grid">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div 
               key={project.id}
               className="projects__card"

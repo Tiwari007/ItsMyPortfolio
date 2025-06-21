@@ -76,7 +76,7 @@ export default function ContactSection() {
           </h2>
           <div className="contact__title-underline"></div>
           <p className="contact__description">
-            I'm always interested in new opportunities and exciting projects. Let's connect and discuss how we can work together!
+            I&apos;m always interested in new opportunities and exciting projects. Let&apos;s connect and discuss how we can work together!
           </p>
         </div>
 
@@ -161,7 +161,7 @@ export default function ContactSection() {
 
               {submitStatus === 'success' && (
                 <div className="contact__success-message">
-                  ✓ Message sent successfully! I'll get back to you soon.
+                  ✓ Message sent successfully! I will get back to you soon.
                 </div>
               )}
             </form>
@@ -170,10 +170,10 @@ export default function ContactSection() {
           {/* Contact Information */}
           <div className="contact__info">
             <div className="contact__info-section">
-              <h3 className="contact__info-title">Let's Connect</h3>
+              <h3 className="contact__info-title">Let&apos;s Connect</h3>
               <p className="contact__info-description">
                 Whether you have a project in mind, want to collaborate, or just want to say hello, 
-                I'd love to hear from you. Feel free to reach out through any of the channels below.
+                I&apos;d love to hear from you. Feel free to reach out through any of the channels below.
               </p>
             </div>
 
@@ -218,8 +218,8 @@ export default function ContactSection() {
                 <h4 className="contact__availability-title">Available for new projects</h4>
               </div>
               <p className="contact__availability-text">
-                I'm currently available for freelance work and new opportunities. 
-                Let's discuss your next project!
+                I&apos;m currently available for freelance work and new opportunities. 
+                Let&apos;s discuss your next project!
               </p>
             </div>
           </div>
